@@ -5,8 +5,8 @@ def create_connection():
         return connect(
             host="localhost",
             user="root",
-            password="123@nshimiye",
-            database="shopDB",
+            password=" ",
+            database=" ",
         )
     except Error as e:
         print(e)
