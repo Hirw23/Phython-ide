@@ -12,7 +12,7 @@ def register_user():
        cursor = connection.cursor()
        cursor.execute(models.REGISTER_USER, (username, password))
        connection.commit()
-       print("User registered successfully.")
+       print("User registered successfully")
    except Error as e:
        print(e)
    finally:
