@@ -29,7 +29,7 @@ def login_user():
            print("Login successful")
            return result[0]  # Return the user_id
        else:
-           print("Login failed.")
+           print("Login failed")
            return None
    except Error as e:
        print(e)
