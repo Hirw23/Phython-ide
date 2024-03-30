@@ -1,3 +1,8 @@
+from getpass import getpass
+from mysql.connector import Error
+from database import create_connection
+import models
+
 #register user function
 def register_user():
    connection = create_connection()
