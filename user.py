@@ -1,3 +1,4 @@
+#register user function
 def register_user():
    connection = create_connection()
    username = input("Enter username: ")
