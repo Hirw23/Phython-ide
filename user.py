@@ -17,3 +17,22 @@ def register_user():
        print(e)
    finally:
        connection.close()
+def login_user():
+   connection = create_connection()
+   username = input("Enter username: ")
+   password = getpass("Enter password: ")
+   try:
+       cursor = connection.cursor()
+       cursor.execute(models.LOGIN_USER, (username, password))
+       result = cursor.fetchone()
+       if result:
+           print("Login successful.")
+           return result[0]  # Return the user_id
+       else:
+           print("Login failed.")
+           return None
+   except Error as e:
+       print(e)
+  finally:
+       connection.close()
+
