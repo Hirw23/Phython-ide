@@ -26,7 +26,7 @@ def login_user():
        cursor.execute(models.LOGIN_USER, (username, password))
        result = cursor.fetchone()
        if result:
-           print("Login successful.")
+           print("Login successful")
            return result[0]  # Return the user_id
        else:
            print("Login failed.")
