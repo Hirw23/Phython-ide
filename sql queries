@@ -1,0 +1,53 @@
+# create a product table:
+
+CREATE TABLE products (
+    product_id INT NOT NULL AUTO_INCREMENT,
+    product_name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    seller_id INT,
+    stock INT NOT NULL DEFAULT 5,
+    PRIMARY KEY (product_id),
+    KEY seller_index (seller_id)
+);
+
+--------------------------------------------------------------------------------------------------------------
+
+# create a users table:
+
+CREATE TABLE users (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY (user_id)
+);
+-------------------------------------------------------------------------------------------------------------
+
+# create a reviews table:
+
+CREATE TABLE reviews (
+    review_id INT NOT NULL AUTO_INCREMENT,
+    product_id INT,
+    reviewer_id INT,
+    review_text TEXT,
+    rating INT,
+    PRIMARY KEY (review_id),
+    KEY product_id_index (product_id),
+    KEY reviewer_id_index (reviewer_id)
+);
+
+-------------------------------------------------------------------------------------------------------------
+
+# create a purchases table:
+
+CREATE TABLE purchases (
+    purchase_id INT NOT NULL AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    buyer_id INT NOT NULL,
+    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (purchase_id),
+    KEY product_id_index (product_id),
+    KEY buyer_id_index (buyer_id)
+);
+
+
