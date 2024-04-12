@@ -17,13 +17,15 @@ def main():
             elif choice == "3":
                 break
         else:
-                print("1. Add Product\n2. View All Products\n3. Logout")
+                print("1. Add Product\n2. View All Products\n3. View Available Products in Stock\n4. Logout")
                 choice = input("Choose an option: ")
                 if choice == "1":
                     product.add_product(user_id)
                 elif choice == "2":
                     product.view_products()
                 elif choice == "3":
+                    product.view_available_products(user_id)
+                elif choice == "4":
                     user_id = None  # This logs out the user by resetting user_id to None
                     print("You have been logged out.")
 
