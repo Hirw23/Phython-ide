@@ -39,3 +39,15 @@ def view_products():
       print(e)
   finally:
       connection.close()
+def view_available_products(user_id):
+    connection = create_connection()
+    try:
+        cursor = connection.cursor()
+        cursor.execute(
+            "SELECT product_id, product_name, description, price, stock FROM products WHERE stock > 0 AND seller_id != %s",
+            (user_id,))
+        result = cursor.fetchall()
+        if result:
+            # Print table header
+            print(f"{'ID':<5} {'Name':<20} {'Description':<30} {'Price':<10} {'Stock':<5}")
+            print("-" * 75)  # Print a separator line
