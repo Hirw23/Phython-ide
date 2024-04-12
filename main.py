@@ -12,6 +12,8 @@ def main():
             choice = input("Enter your choice here: ")
             if choice == "1":
                 user.register_user()
+            elif choice == "2":
+                user_id = user.login_user()
             elif choice == "3":
                 break
         else:
