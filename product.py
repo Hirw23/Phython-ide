@@ -62,3 +62,18 @@ def view_available_products(user_id):
         print(e)
     finally:
         connection.close()
+
+        def leave_review(user_id):
+    connection = create_connection()
+    product_id = input("Enter the ID of the product you are reviewing: ")
+    review_text = input("Enter your review: ")
+    rating = input("Enter your rating (1-5): ")
+    try:
+        cursor = connection.cursor()
+        cursor.execute(models.LEAVE_REVIEW, (product_id, user_id, review_text, rating))
+        connection.commit()
+        print("Review added successfully.")
+    except Error as e:
+        print(e)
+    finally:
+        connection.close()
