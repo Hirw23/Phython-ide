@@ -8,3 +8,8 @@ VIEW_PRODUCTS = "SELECT product_id, product_name, description, price, stock FROM
 
 # Review operations
 LEAVE_REVIEW = "INSERT INTO reviews (product_id, reviewer_id, review_text, rating) VALUES (%s, %s, %s, %s)"
+
+# Assuming you have a purchases table with fields for purchase_id, product_id, buyer_id, purchase_date
+# Add this SQL operation to models.py
+BUY_PRODUCT = "INSERT INTO purchases (product_id, buyer_id, purchase_date) VALUES (%s, %s, NOW())"
+
