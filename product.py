@@ -77,3 +77,20 @@ def view_available_products(user_id):
         print(e)
     finally:
         connection.close()
+
+    def buy_product(user_id):
+    connection = create_connection()
+    product_id = input("Enter the ID of the product you wish to buy: ")
+
+    try:
+        cursor = connection.cursor()
+
+        # Check stock and seller
+        cursor.execute("SELECT stock, seller_id FROM products WHERE product_id = %s", (product_id,))
+        product = cursor.fetchone()
+        if product is None or product[0] <= 0:
+            print("This product is not available at the moment.")
+            return
+        if product[1] == user_id:
+            print("You cannot buy your own product.")
+            return
