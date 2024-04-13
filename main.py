@@ -17,7 +17,7 @@ def main():
             elif choice == "3":
                 break
         else:
-                print("1. Add Product\n2. View All Products\n3. View Available Products in Stock\n4. Logout")
+                print("1. Add Product\n2. View All Products\n3. View Available Products in Stock\n4. Buy Product\n5. Leave Review\n6. Logout")
                 choice = input("Choose an option: ")
                 if choice == "1":
                     product.add_product(user_id)
