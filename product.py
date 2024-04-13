@@ -94,3 +94,12 @@ def view_available_products(user_id):
         if product[1] == user_id:
             print("You cannot buy your own product.")
             return
+        # Proceed with purchase and update stock
+        cursor.execute("UPDATE products SET stock = stock - 1 WHERE product_id = %s", (product_id,))
+        cursor.execute(models.BUY_PRODUCT, (product_id, user_id))
+        connection.commit()
+        print("Product purchased, Payment received Successfully.")
+        except Error as e:
+           print(e)
+        finally:
+           connection.close()
