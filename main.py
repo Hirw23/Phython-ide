@@ -25,6 +25,8 @@ def main():
                 elif choice == "3":
                     product.view_available_products(user_id)
                 elif choice == "4":
+                    product.buy_product(user_id)
+                elif choice == "5":
                      user_id = None  # This logs out the user by resetting user_id to None
                 print("You have been logged out.")
 
