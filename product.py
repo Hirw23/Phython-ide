@@ -62,9 +62,8 @@ def view_available_products(user_id):
         print(e)
     finally:
         connection.close()
-
-        def leave_review(user_id):
-    connection = create_connection()
+    def leave_review(user_id):
+        connection = create_connection()
     product_id = input("Enter the ID of the product you are reviewing: ")
     review_text = input("Enter your review: ")
     rating = input("Enter your rating (1-5): ")
@@ -79,7 +78,7 @@ def view_available_products(user_id):
         connection.close()
 
     def buy_product(user_id):
-    connection = create_connection()
+         connection = create_connection()
     product_id = input("Enter the ID of the product you wish to buy: ")
 
     try:
@@ -93,13 +92,13 @@ def view_available_products(user_id):
             return
         if product[1] == user_id:
             print("You cannot buy your own product.")
-            return
+        return
         # Proceed with purchase and update stock
         cursor.execute("UPDATE products SET stock = stock - 1 WHERE product_id = %s", (product_id,))
         cursor.execute(models.BUY_PRODUCT, (product_id, user_id))
         connection.commit()
         print("Product purchased, Payment received Successfully.")
-        except Error as e:
-           print(e)
-        finally:
-           connection.close()
+    except Error as e:
+            print(e)
+    finally:
+            connection.close()

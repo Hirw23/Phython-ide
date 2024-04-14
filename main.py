@@ -1,6 +1,5 @@
 import user
 import product
-
 def main():
     print("-----------------------------------------------")
     print("WELCOME TO InnovEd MARKET - Buy && Sell Stuffs")
@@ -26,8 +25,8 @@ def main():
                 elif choice == "3":
                     product.view_available_products(user_id)
                 elif choice == "4":
-                    user_id = None  # This logs out the user by resetting user_id to None
-                    print("You have been logged out.")
+                     user_id = None  # This logs out the user by resetting user_id to None
+                print("You have been logged out.")
 
 
 if __name__ == "__main__":

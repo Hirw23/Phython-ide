@@ -33,6 +33,6 @@ def login_user():
            return None
    except Error as e:
        print(e)
-  finally:
+   finally:
        connection.close()
 
