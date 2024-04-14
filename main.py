@@ -27,6 +27,8 @@ def main():
                 elif choice == "4":
                     product.buy_product(user_id)
                 elif choice == "5":
+                    product.leave_review(user_id)
+                elif choice == "6":
                      user_id = None  # This logs out the user by resetting user_id to None
                 print("You have been logged out.")
 
